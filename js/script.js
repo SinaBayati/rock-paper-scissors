@@ -36,4 +36,28 @@ function play(playerChoice,computerChoice){
   }
 }
 
-console.log(play(getPlayerChoice(),getComputerChoice()));
+function playFiveRounds(){
+  let computerScore = 0;
+  let playerScore = 0;
+  for(let i = 0; i < 5; i++){
+    let result = play(getPlayerChoice(),getComputerChoice());
+    if(result.includes("Player wins")){
+      playerScore++;
+    } else if(result.includes("Computer wins")){
+      computerScore++;
+    }
+    console.log(result);
+  }
+  console.log(
+  `Player score: ${playerScore}
+Computer score: ${computerScore}`);
+  if(computerScore > playerScore){
+    console.log("Computer is the winner of the 5 rounds!");
+  } else if(computerScore < playerScore){
+    console.log("Player is the winner of the 5 rounds!");
+  } else {
+    console.log("The result of the 5 rounds is a Tie!");
+  }
+}
+
+playFiveRounds();
