@@ -1,17 +1,7 @@
 function getComputerChoice(){
-  let randomIndex = Math.floor(Math.random() * 3);
-  return getChoices(randomIndex)
-}
-
-function getChoices(index){
   const choices = ["rock","paper","scissors"];
-  return choices[index];
-}
-
-function getPlayerChoice(){
-  let playerChoice = prompt("Rock/Paper/Scissors: ");
-  playerChoice = playerChoice.trim().toLowerCase();
-  return playerChoice;
+  let randomIndex = Math.floor(Math.random() * 3);
+  return choices[randomIndex]
 }
 
 function play(playerChoice,computerChoice){
@@ -37,9 +27,17 @@ function play(playerChoice,computerChoice){
 }
 
 let btnContainer = document.querySelector(".container");
+let output = document.querySelector(".output");
 
 function clickHandler(e){
-  let target = e.targe;
+  let playerChoice = e.target.id;
+
+  let resultElem = document.createElement("div");
+  let resultText = play(playerChoice, getComputerChoice());
+  resultElem.textContent = resultText;
+  resultElem.className = "resultItem";
+
+  output.appendChild(resultElem)
 }
 
 btnContainer.addEventListener("click",clickHandler);
