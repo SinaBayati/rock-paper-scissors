@@ -28,6 +28,9 @@ function play(playerChoice,computerChoice){
 
 let btnContainer = document.querySelector(".container");
 let output = document.querySelector(".output");
+let roundsPlayed = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 function clickHandler(e){
   let playerChoice = e.target.id;
@@ -36,6 +39,37 @@ function clickHandler(e){
   let resultText = play(playerChoice, getComputerChoice());
   resultElem.textContent = resultText;
   resultElem.className = "resultItem";
+  output.appendChild(resultElem);
+
+  updateScore(resultText);
+
+  roundsPlayed += 1;
+  if(roundsPlayed === 5){
+    showTotalScore();
+    btnContainer.removeEventListener("click",clickHandler);
+  }
+}
+
+function updateScore(resultText){
+  if(resultText.startsWith("Player wins")){
+    playerScore++;
+  } else if(resultText.startsWith("Computer wins")){
+    computerScore++;
+  }
+}
+
+function showTotalScore(){
+  let resultText;
+  playerScore > computerScore
+  ? resultText = `Player wins!
+  Player: ${playerScore}
+  Computer: ${computerScore}`
+  : resultText = `Computer wins!
+  Player: ${playerScore}
+  Computer: ${computerScore}`;
+
+  let resultElem = document.createElement("div");
+  resultElem.textContent = resultText;
 
   output.appendChild(resultElem)
 }
