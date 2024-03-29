@@ -70,6 +70,7 @@ function showTotalScore(){
 
   let resultElem = document.createElement("div");
   resultElem.textContent = resultText;
+  resultElem.className = "resultItem total"
 
   output.appendChild(resultElem)
 }
