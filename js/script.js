@@ -35,3 +35,11 @@ function play(playerChoice,computerChoice){
     return "Computer wins! Rock beats Scissors";
   }
 }
+
+let btnContainer = document.querySelector(".container");
+
+function clickHandler(e){
+  let target = e.targe;
+}
+
+btnContainer.addEventListener("click",clickHandler);
