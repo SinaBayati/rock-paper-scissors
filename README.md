@@ -1,4 +1,4 @@
-# rock-paper-scissors
+# Rock Paper Scissors
 
 This is the rock paper scissors project of The Odin Project.
 The game plays five rounds and in the end there will be either
